@@ -479,14 +479,15 @@ recurrence.widget.Widget.prototype = {
         var widget = this;
 
         var panels = recurrence.widget.e('div', {'class': 'panels'});
-        var control = recurrence.widget.e('div', {'class': 'control'});
+        var control = recurrence.widget.e('div', {'class': ''});
         var root = recurrence.widget.e(
             'div', {'class': this.textarea.className}, [panels, control]);
 
         var add_rule = new recurrence.widget.AddButton(
             recurrence.display.labels.add_rule, {
-            'onclick': function () {widget.add_rule();}
+            'onclick': function () {}
         });
+        setTimeout(function(){widget.add_rule()}, 1);
         recurrence.widget.add_class(add_rule.elements.root, 'add-rule');
         control.appendChild(add_rule.elements.root);
 
@@ -601,11 +602,11 @@ recurrence.widget.AddButton.prototype = {
         var addbutton = this;
 
         var plus = recurrence.widget.e(
-            'span', {'class': 'plus'}, '+');
+            'span', {'class': ''}, '');
         var label = recurrence.widget.e(
-            'span', {'class': 'recurrence-label'}, this.label);
+            'span', {'class': ''}, '');
         var root = recurrence.widget.e(
-            'a', {'class': 'add-button', 'href': 'javascript:void(0)'},
+            'a', {'class': '', 'href': 'javascript:void(0)'},
             [plus, label]);
 
         root.onclick = function() {
@@ -648,17 +649,13 @@ recurrence.widget.Panel.prototype = {
             }
         }, '&times;');
         var label = recurrence.widget.e('a', {
-           'class': 'recurrence-label',
+           'class': '',
            'href': 'javascript:void(0)',
            'onclick': function() {
-               if (panel.collapsed)
-                   panel.expand();
-               else
-                   panel.collapse();
            }
         }, '&nbsp;');
         var header = recurrence.widget.e(
-             'div', {'class': 'header'}, [label]);
+             'div', {'class': ''}, []);
         var body = recurrence.widget.e(
             'div', {'class': 'body'});
         var root = recurrence.widget.e(
