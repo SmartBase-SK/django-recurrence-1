@@ -1467,13 +1467,13 @@ recurrence.widget.RuleWeeklyForm.prototype = {
     init_dom: function() {
         var form = this;
 
-        var weekday_grid = new recurrence.widget.Grid(7, 1);
+        var weekday_grid = new recurrence.widget.Grid(5, 1);
         var days = [];
         var days = recurrence.array.foreach(
             this.rule.byday, function(day) {
                 return recurrence.to_weekday(day).number;
             });
-        for (var x=0; x < 7; x++) {
+        for (var x=0; x < 5; x++) {
             var cell = weekday_grid.cell(x, 0);
             if (days.indexOf(x) > -1)
                 recurrence.widget.add_class(cell, 'active');
