@@ -1280,6 +1280,10 @@ recurrence.widget.RuleMonthlyForm.prototype = {
         // use the last four cells to provide negative
         // day indexes
                 cell.innerHTML = number<=31 ? number : number-36;
+                if (cell.innerHTML < 0 ){
+                    recurrence.widget.add_class(cell, 'empty');
+                    cell.innerHTML = '';
+                }
                 if (this.rule.bymonthday.indexOf(number) > -1)
                     recurrence.widget.add_class(cell, 'active');
                 cell.onclick = function () {
