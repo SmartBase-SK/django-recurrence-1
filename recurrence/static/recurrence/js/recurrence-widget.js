@@ -487,7 +487,9 @@ recurrence.widget.Widget.prototype = {
             recurrence.display.labels.add_rule, {
             'onclick': function () {}
         });
-        setTimeout(function(){widget.add_rule()}, 1);
+        if($(this.textarea).html() == ''){
+            setTimeout(function(){widget.add_rule()}, 1);
+        }
         recurrence.widget.add_class(add_rule.elements.root, 'add-rule');
         control.appendChild(add_rule.elements.root);
 
@@ -666,7 +668,7 @@ recurrence.widget.Panel.prototype = {
             'body': body
         };
 
-        this.collapse();
+        //this.collapse();
     },
 
     set_label: function(label) {
